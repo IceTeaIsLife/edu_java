@@ -1,9 +1,13 @@
+import java.util.*;
+
 public class Main {
 
     public static void main(String[] args) {
         Ex1();
         Ex2(args);
         Ex3();
+        Ex4();
+        Ex5();
     }
 
     public static void Ex1() {
@@ -44,5 +48,46 @@ public class Main {
             float res = 1 / i;
             System.out.printf("%.3f \n", res);
         }
+    }
+
+    public static void Ex4()
+    {
+        System.out.println("_Ex4_");
+        int[] array = new int[10];
+        System.out.println("Math.random():");
+        for (int i = 0; i < 10; i++)
+        {
+            array[i] = 1 + (int) (Math.random()*10);
+            System.out.print(array[i] + " ");
+        }
+        Arrays.sort(array);
+        System.out.println("\nSorted array:");
+        for (int i = 0; i < 10; i++)
+        {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println("\nRandom:");
+        for (int i = 0; i < 10; i++)
+        {
+            Random n = new Random();
+            array[i] = n.nextInt(10);
+            System.out.print(array[i] + " ");
+        }
+        Arrays.sort(array);
+        System.out.println("\nSorted array:");
+        for (int i = 0; i < 10; i++)
+        {
+            System.out.print(array[i] + " ");
+        }
+    }
+
+    public static void Ex5(){
+        System.out.println("_Ex5_");
+        int res = 1;
+        for (int i = 1; i < 8; i++)
+        {
+            res += res*i;
+        }
+        System.out.print("Факториал 8 = " + res);
     }
 }
