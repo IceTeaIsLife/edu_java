@@ -82,7 +82,7 @@ public class Main {
     }
 
     public static void Ex5(){
-        System.out.println("_Ex5_");
+        System.out.println("\n_Ex5_");
         int res = 1;
         for (int i = 1; i < 8; i++)
         {
