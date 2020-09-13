@@ -1,27 +1,38 @@
 public abstract class Furniture {
-	private String name = null;
-	private String material = null;
-	Furniture(String name, String material)
+	private int amount;
+	private int price;
+	Furniture(int amount, int price)
 	{
-		this.name = name;
-		this.material = material;
+		this.amount = amount;
+		this.price = price;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public int getAmount() {
+		return amount;
 	}
 
-	public String getName() {
-		return this.name;
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
-	public void setMaterial(String material) {
-		this.material = material;
+	public int getPrice() {
+		return price;
 	}
 
-	public String getMaterial() {
-		return this.material;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
-	public abstract String ToString();
+	public void purchaseItem()
+	{
+		this.amount--;
+	}
+
+	@Override
+	public String toString() {
+		return "Furniture{" +
+				"amount=" + amount +
+				", price=" + price +
+				'}';
+	}
 }
