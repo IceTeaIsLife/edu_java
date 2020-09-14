@@ -1,3 +1,5 @@
+package Practice_8.Ex1;
+
 import java.awt.*;
 
 public class Rectangle extends Shape {

@@ -1,5 +1,6 @@
+package Practice_8.Ex1;
+
 import java.awt.*;
-import javax.swing.JFrame;
 
 public class Oval extends Shape {
 	private int w = 0;
