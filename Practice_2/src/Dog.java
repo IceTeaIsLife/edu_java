@@ -28,9 +28,11 @@ public class Dog {
         return this.age*7;
     }
 
-    public String ToString()
-    {
-        return "This dog named " + this.name + " and it's age is " + this.age;
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
-
 }
