@@ -35,6 +35,10 @@ public class Circle extends Shape {
 
 	@Override
 	public String toString() {
-		return "Circle parameters:\nradius = " + radius + "\ncolor = " + color + "\n filled = " + filled;
+		return "Circle{" +
+				"radius=" + radius +
+				", color='" + color + '\'' +
+				", filled=" + filled +
+				'}';
 	}
 }

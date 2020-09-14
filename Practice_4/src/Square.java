@@ -32,6 +32,6 @@ public class Square extends Rectangle {
 
 	@Override
 	public String toString() {
-		return "Square parameters:\nside = " + getSide() + "\ncolor = " + color + "\n filled = " + filled;
+		return super.toString();
 	}
 }

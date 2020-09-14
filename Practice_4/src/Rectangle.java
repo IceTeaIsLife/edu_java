@@ -43,6 +43,11 @@ public class Rectangle extends Shape {
 
 	@Override
 	public String toString() {
-		return "Rectangle parameters:\nwidth = " + width + "\nlength" + length + "\ncolor = " + color + "\n filled = " + filled;
+		return "Rectangle{" +
+				"width=" + width +
+				", length=" + length +
+				", color='" + color + '\'' +
+				", filled=" + filled +
+				'}';
 	}
 }
