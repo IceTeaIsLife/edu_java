@@ -1,4 +1,4 @@
-package Practice_8;
+package Practice_8.Ex2;
 
 import javax.swing.*;
 import java.awt.*;

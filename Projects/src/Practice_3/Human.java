@@ -5,11 +5,24 @@ public class Human {
 	private Hand hand = new Hand();
 	private Leg leg = new Leg();
 
-	public void createHuman()
-	{
-		head.setHowMuch(1);
-		hand.setHowMuch(2);
-		leg.setHowMuch(2);
-		System.out.println("Average human has " + head.getHowMuch() + " head, " + hand.getHowMuch() + " hands and " + leg.getHowMuch() + " legs");
+	public void setHead(int howMuch) {
+		this.head.setHowMuch(howMuch);
+	}
+
+	public void setHand(int howMuch) {
+		this.hand.setHowMuch(howMuch);
+	}
+
+	public void setLeg(int howMuch) {
+		this.leg.setHowMuch(howMuch);
+	}
+
+	@Override
+	public String toString() {
+		return "Human{" +
+				"head=" + head +
+				", hand=" + hand +
+				", leg=" + leg +
+				'}';
 	}
 }

@@ -1,5 +1,3 @@
-package Practice_8;
-
 import java.awt.*;
 
 public class Shape {

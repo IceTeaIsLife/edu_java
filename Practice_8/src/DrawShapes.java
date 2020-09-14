@@ -1,8 +1,5 @@
-package Practice_8;
-
-import javax.swing.*;
-import java.awt.Rectangle;
 import java.awt.*;
+import javax.swing.JFrame;
 
 public class DrawShapes extends JFrame {
 	private int frameWidth = 1280, frameHeight = 720;
@@ -17,7 +14,7 @@ public class DrawShapes extends JFrame {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, frameWidth, frameHeight);
 		Oval oval = new Oval(1,1,1,1,Color.BLACK);
-		java.awt.Rectangle rectangle = new Rectangle(1,1,1,1,Color.BLACK);
+		Rectangle rectangle = new Rectangle(1,1,1,1,Color.BLACK);
 		for (int i = 0; i<10; i++)
 		{
 			oval.randomize();
