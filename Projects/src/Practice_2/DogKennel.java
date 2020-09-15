@@ -1,17 +1,14 @@
 package Practice_2;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DogKennel {
-	private int maxCapacity = 7;
-	private Dog[] doge = new Dog[maxCapacity];
-	private Scanner in = new Scanner(System.in);
+	private int maxCapacity = 100;
+	ArrayList<Dog> dogs = new ArrayList<Dog>();
 
-	public void addDogs() {
-		Scanner in = new Scanner(System.in);
-		for (int i = 0; i < maxCapacity; i++) {
-			doge[i] = new Dog(in.next(), in.nextInt());
-			System.out.println(doge[i].toString());
-		}
+	public void addDog(Dog dog)
+	{
+		dogs.add(dog);
 	}
 }
