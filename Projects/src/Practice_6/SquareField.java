@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class SquareField {
 	private int num = 0;
 	private Position position = new Position(0,0);
-	//public int array[][];// = new int[num][num];
+	private int array[][];//[][];// = new int[num][num];
 	SquareField(int num)
 	{
 		int array[][] = new int[num][num];

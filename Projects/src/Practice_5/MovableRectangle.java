@@ -11,7 +11,7 @@ public class MovableRectangle implements Movable {
 
 	public void setWidth(double width)
 	{
-		if (width > this.getWidth())								//можно еще сделать width - getWidth и проверить ><0
+		if (width > this.getWidth())								//можно еще сделать width - getWidth
 		{
 			this.topLeft.setX(this.topLeft.getX() - width/2);
 			this.bottomRight.setX(this.bottomRight.getX() + width/2);
