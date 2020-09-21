@@ -1,4 +1,4 @@
-package Practice_6;
+package Practice_5;
 
 public class MovableRectangle extends Movable {
 	private MovablePoint topLeft;
