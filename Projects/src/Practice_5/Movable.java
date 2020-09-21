@@ -1,11 +1,11 @@
 package Practice_5;
 
-public abstract class Movable {
-	public abstract void moveUp();
+public interface Movable {
+	void moveUp();
 
-	public abstract void moveDown();
+	void moveDown();
 
-	public abstract void moveLeft();
+	void moveLeft();
 
-	public abstract void moveRight();
+	void moveRight();
 }

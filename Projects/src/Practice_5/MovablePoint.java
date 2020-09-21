@@ -1,12 +1,12 @@
 package Practice_5;
 
-public class MovablePoint extends Movable {
-	protected int x;
-	protected int y;
-	protected int xSpeed;
-	protected int ySpeed;
+public class MovablePoint implements Movable {
+	private double x;
+	private double y;
+	private double xSpeed;
+	private double ySpeed;
 
-	MovablePoint(int x, int y, int xSpeed, int ySpeed) {
+	MovablePoint(double x, double y, double xSpeed, double ySpeed) {
 		this.x = x;
 		this.y = y;
 		this.xSpeed = xSpeed;
@@ -21,6 +21,38 @@ public class MovablePoint extends Movable {
 				", xSpeed=" + xSpeed +
 				", ySpeed=" + ySpeed +
 				'}';
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+
+	public double getxSpeed() {
+		return xSpeed;
+	}
+
+	public void setxSpeed(double xSpeed) {
+		this.xSpeed = xSpeed;
+	}
+
+	public double getySpeed() {
+		return ySpeed;
+	}
+
+	public void setySpeed(double ySpeed) {
+		this.ySpeed = ySpeed;
 	}
 
 	@Override
