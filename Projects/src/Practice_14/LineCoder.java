@@ -58,8 +58,8 @@ public class LineCoder {
 		for (int i = 0; i < rulesNumber; i++) {
 			line = line.replaceAll(rules.get(rules.size() - 2 - i * 2), " " + rules.get(rules.size() - 1 - i * 2) + " ");
 		}
-		line = line.replaceAll(" ", "");
-		return line;
+
+		return line.replaceAll(" ", "");
 	}
 
 	public void runApp() {                    //без регулярных выражений
