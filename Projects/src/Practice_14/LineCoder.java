@@ -54,7 +54,15 @@ public class LineCoder {
 		return line;
 	}
 
-	public void runApp() {					//без регулярных выражений
+	public String makeReplacements(String line, ArrayList<String> rules) {
+		for (int i = 0; i < rulesNumber; i++) {
+			line = line.replaceAll(rules.get(rules.size() - 2 - i * 2), " " + rules.get(rules.size() - 1 - i * 2) + " ");
+		}
+		line = line.replaceAll(" ", "");
+		return line;
+	}
+
+	public void runApp() {                    //без регулярных выражений
 		tryTypeRulesNumer();
 		ArrayList<String> rules = new ArrayList<String>();
 		String line;
@@ -64,20 +72,17 @@ public class LineCoder {
 			rules.add(line.split(" ")[1]);
 		}
 
-		line = this.tryTypeLine();
-		for (int i = 0; i < rulesNumber; i++) {
-			line = line.replaceAll(rules.get(rules.size() - 2 - i * 2), rules.get(rules.size() - 1 - i * 2));
-		}
+		line = makeReplacements(this.tryTypeLine(), rules);
 		System.out.println(line);
 	}
 
-	public void runWithRegex()						//с регулярными выражениями
+	public void runWithRegex()                        //с регулярными выражениями
 	{
 		System.out.println("Running with regex...");
 		tryTypeRulesNumer();
 
 		ArrayList<String> rules = new ArrayList<String>();
-		Pattern pattern=Pattern.compile("(?<toFind>\\w+) (?<replaceTo>\\w+)");;
+		Pattern pattern = Pattern.compile("(?<toFind>\\w+) (?<replaceTo>\\w+)");
 		Matcher matcher;
 		for (int i = 0; i < rulesNumber; i++) {
 			matcher = pattern.matcher((new Scanner(System.in)).nextLine());
@@ -87,10 +92,7 @@ public class LineCoder {
 			}
 		}
 
-		String line = this.tryTypeLine();
-		for (int i = 0; i < rulesNumber; i++) {
-			line = line.replaceAll(rules.get(rules.size() - 2 - i * 2), rules.get(rules.size() - 1 - i * 2));
-		}
+		String line = makeReplacements(this.tryTypeLine(), rules);
 		System.out.println(line);
 	}
 }
