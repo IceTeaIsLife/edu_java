@@ -8,10 +8,6 @@ import java.util.regex.Pattern;
 public class LineCoder {
 	private int rulesNumber;
 
-	public void setRulesNumber(int rulesNumber) {
-		this.rulesNumber = rulesNumber;
-	}
-
 	public void typeRulesNumber() throws RulesNumberException {
 		System.out.println("Введите количество правил сокращения");
 		Scanner in = new Scanner(System.in);
@@ -54,45 +50,30 @@ public class LineCoder {
 		return line;
 	}
 
-	public String makeReplacements(String line, ArrayList<String> rules) {
+	public void makeReplacements() {
+		tryTypeRulesNumer();
+		ArrayList<String> rules = new ArrayList<>();
+
 		for (int i = 0; i < rulesNumber; i++) {
-			line = line.replaceAll(rules.get(rules.size() - 2 - i * 2), " " + rules.get(rules.size() - 1 - i * 2) + " ");
+			rules.add((new Scanner(System.in)).nextLine());
 		}
 
-		return line.replaceAll(" ", "");
-	}
-
-	public void runApp() {                    //без регулярных выражений
-		tryTypeRulesNumer();
-		ArrayList<String> rules = new ArrayList<String>();
-		String line;
-		for (int i = 0; i < rulesNumber; i++) {
-			line = (new Scanner(System.in)).nextLine();
-			rules.add(line.split(" ")[0]);
-			rules.add(line.split(" ")[1]);
-		}
-
-		line = makeReplacements(this.tryTypeLine(), rules);
-		System.out.println(line);
-	}
-
-	public void runWithRegex()                        //с регулярными выражениями
-	{
-		System.out.println("Running with regex...");
-		tryTypeRulesNumer();
-
-		ArrayList<String> rules = new ArrayList<String>();
 		Pattern pattern = Pattern.compile("(?<toFind>\\w+) (?<replaceTo>\\w+)");
 		Matcher matcher;
+		String line = this.tryTypeLine();
+		String lineRegex = line;
 		for (int i = 0; i < rulesNumber; i++) {
-			matcher = pattern.matcher((new Scanner(System.in)).nextLine());
+			line = line.replaceAll(rules.get(i).split(" ")[0], " " + rules.get(i).split(" ")[1] + " ");
+			matcher = pattern.matcher(rules.get(i));
 			if (matcher.find()) {
-				rules.add(matcher.group("toFind"));
-				rules.add(matcher.group("replaceTo"));
+				lineRegex = lineRegex.replaceAll(matcher.group("toFind"), " " + matcher.group("replaceTo") + " ");
 			}
+
 		}
 
-		String line = makeReplacements(this.tryTypeLine(), rules);
-		System.out.println(line);
+		System.out.println("Common result:");
+		System.out.println(line.replaceAll(" ", ""));
+		System.out.println("Regex result:");
+		System.out.println(lineRegex.replaceAll(" ", ""));
 	}
 }
