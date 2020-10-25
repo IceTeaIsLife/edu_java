@@ -1,6 +1,8 @@
 package Practice_14;
 
-import java.util.ArrayList;
+
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,7 +11,7 @@ public class LineCoder {
 	private int rulesNumber;
 
 	public void typeRulesNumber() throws RulesNumberException {
-		System.out.println("Введите количество правил сокращения");
+		//System.out.println("Введите количество правил сокращения");
 		Scanner in = new Scanner(System.in);
 		int rulesNumber = Integer.parseInt(in.nextLine());
 		if ((rulesNumber > 300) || (rulesNumber < 1)) {
@@ -19,17 +21,17 @@ public class LineCoder {
 		}
 	}
 
-	public void tryTypeRulesNumer() {
+	public void tryTypeRulesNumber() {
 		try {
 			this.typeRulesNumber();
 		} catch (RulesNumberException e) {
 			System.out.println("Количество правил должно быть от 1 до 300 включительно");
-			tryTypeRulesNumer();
+			tryTypeRulesNumber();
 		}
 	}
 
 	public String typeLine() throws LineLengthException {
-		System.out.println("Введите строку, которую необходимо преобразовать");
+		//System.out.println("Введите строку, которую необходимо преобразовать");
 		Scanner in = new Scanner(System.in);
 		String line = in.nextLine();
 		if (line.length() > 100_000) {
@@ -50,6 +52,39 @@ public class LineCoder {
 		return line;
 	}
 
+
+	public void runApp() {
+		tryTypeRulesNumber();
+		Pattern pattern = Pattern.compile("(?<toFind>\\w+) (?<replaceTo>\\w+)");
+		Matcher matcher;
+
+		String[] searchList = new String[rulesNumber];
+		String[] replacementList = new String[rulesNumber];
+
+		String[] searchListRegex = new String[rulesNumber];
+		String[] replacementListRegex = new String[rulesNumber];
+		String line;
+		for (int i = 0; i < rulesNumber; i++) {
+
+			line = (new Scanner(System.in)).nextLine();
+			searchList[i] = line.split(" ")[0];
+			replacementList[i] = line.split(" ")[1];
+
+			matcher = pattern.matcher(line);
+			if (matcher.find()) {
+				searchListRegex[i] = matcher.group("toFind");
+				replacementListRegex[i] = matcher.group("replaceTo");
+			}
+		}
+
+		line = this.tryTypeLine();
+		String lineRegex = line;
+		System.out.println("Common result:");
+		System.out.println(StringUtils.replaceEach(line, searchList, replacementList));
+		System.out.println("Regex result:");
+		System.out.println(StringUtils.replaceEach(lineRegex, searchListRegex, replacementListRegex));
+	}
+/*
 	public void makeReplacements() {
 		tryTypeRulesNumer();
 		ArrayList<String> rules = new ArrayList<>();
@@ -68,12 +103,10 @@ public class LineCoder {
 			if (matcher.find()) {
 				lineRegex = lineRegex.replaceAll(matcher.group("toFind"), " " + matcher.group("replaceTo") + " ");
 			}
-
 		}
-
 		System.out.println("Common result:");
 		System.out.println(line.replaceAll(" ", ""));
 		System.out.println("Regex result:");
 		System.out.println(lineRegex.replaceAll(" ", ""));
-	}
+	}*/
 }
