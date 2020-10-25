@@ -11,7 +11,7 @@ public class LineCoder {
 	private int rulesNumber;
 
 	public void typeRulesNumber() throws RulesNumberException {
-		//System.out.println("Введите количество правил сокращения");
+		System.out.println("Введите количество правил сокращения");
 		Scanner in = new Scanner(System.in);
 		int rulesNumber = Integer.parseInt(in.nextLine());
 		if ((rulesNumber > 300) || (rulesNumber < 1)) {
@@ -31,7 +31,7 @@ public class LineCoder {
 	}
 
 	public String typeLine() throws LineLengthException {
-		//System.out.println("Введите строку, которую необходимо преобразовать");
+		System.out.println("Введите строку, которую необходимо преобразовать");
 		Scanner in = new Scanner(System.in);
 		String line = in.nextLine();
 		if (line.length() > 100_000) {
