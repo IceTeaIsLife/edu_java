@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Graph {
 	private int currentState;    //1..6
-	private int output;            //-1, 0, 1
 
 	public void action(int num) {
 		switch (num) {
@@ -99,7 +98,7 @@ public class Graph {
 	{
 		Scanner in = new Scanner(System.in);
 		currentState = 1;
-		output = in.nextInt();
+		int output = in.nextInt();
 		while (output != -1)
 		{
 			stateSelector(output);
