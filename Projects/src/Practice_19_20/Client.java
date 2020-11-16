@@ -41,7 +41,7 @@ public class Client {
 				socket.send(packet);
 			} catch (IOException e)
 			{
-				e.printStackTrace();
+				e.printStackTrace();//
 			}
 		}
 	}
