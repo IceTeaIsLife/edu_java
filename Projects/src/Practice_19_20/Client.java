@@ -11,14 +11,33 @@ public class Client {
 	private static String nickname;
 	public static void main(String[] args) {
 		try {
-			DatagramSocket socket = new DatagramSocket(port);
+			DatagramSocket socket = new DatagramSocket();
 			System.out.println("Type in your nickname:");
 			nickname = (new Scanner(System.in)).nextLine();
+			connectToServer(socket);
 			Thread messageIn = new Thread(() -> receiveMessage(socket));
 			messageIn.start();
 			Thread messageOut = new Thread(() -> sendMessage(socket));
 			messageOut.start();
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void connectToServer(DatagramSocket socket)
+	{
+		String message = "jhhfthddgcbsvvtftyiujrvf";
+		byte[] data = message.getBytes();
+		try {
+			DatagramPacket packet = new DatagramPacket(
+					data,
+					0, data.length,
+					InetAddress.getByName("127.0.0.1"),
+					port
+			);
+			socket.send(packet);
+		} catch (IOException e)
+		{
 			e.printStackTrace();
 		}
 	}
@@ -35,7 +54,7 @@ public class Client {
 				DatagramPacket packet = new DatagramPacket(
 						data,
 						0, data.length,
-						InetAddress.getByName("255.255.255.255"),
+						InetAddress.getByName("127.0.0.1"),
 						port
 				);
 				socket.send(packet);
